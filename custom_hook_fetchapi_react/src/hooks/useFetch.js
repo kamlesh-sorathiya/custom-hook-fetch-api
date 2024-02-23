@@ -8,10 +8,9 @@ export const useFetch = (url,_body) => {
     const body = useRef(_body);
 
     useEffect(() => {
-
         const controller = new AbortController();
         const fetchedData  = async () => {
-            
+
         setLoading(true);
         try{
             const resp = await fetch(url,{signal:controller.signal},body);
@@ -30,7 +29,7 @@ export const useFetch = (url,_body) => {
      fetchedData();
      return () => controller.abort();
 
-    }, [url,body])
+    }, [url, body])
     
 
     return {data,loading,error}
